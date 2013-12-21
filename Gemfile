@@ -19,6 +19,7 @@ gem 'bootstrap-sass'
 # js
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'uglifier'
 
 # password encryption
 gem 'bcrypt-ruby', '~> 3.1.2'
