@@ -5,7 +5,13 @@ No one's registered yet!
 <% else %>
 <ul>
 	<% for user in @users %>
-	<li><%= user.name %> (<%= mail_to user.email %>)
+	<li>
+		<% if user.is_admin %>
+			[<b>Admin</b>]
+		<% end %>
+
+		<%= user.name %> (<%= mail_to user.email %>)
+	</li>
 	<% end %>
 </ul>
 <% end %>

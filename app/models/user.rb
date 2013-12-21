@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 	validates :phone, presence: true
 
 	has_secure_password
+
+	def is_admin
+		id == 1
+	end
 end
