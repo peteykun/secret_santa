@@ -1,5 +1,7 @@
 SecretSanta::Application.routes.draw do
   root 'users#index'
+  get 'matcher/generate'
+  get 'matcher/show'
 
   resource :users
   resource :sessions
