@@ -1,9 +1,13 @@
 SecretSanta::Application.routes.draw do
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "users/new"
-  get "users/create"
+  root 'users#index'
+
+  resource :users
+  resource :sessions
+
+  match '/register', to: 'users#new', via: 'get'
+  match '/login', to: 'sessions#new', via: 'get'
+  match '/logout', to: 'sessions#destroy', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

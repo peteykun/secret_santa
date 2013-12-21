@@ -1,2 +1,49 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Register</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <b>There are a <%= pluralize(@user.errors.count, 'error') %> that need your attention:</b>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+  	<%= f.submit "Sign Up" %>
+  </div>
+
+<% end %>
