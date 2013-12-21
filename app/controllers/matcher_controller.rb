@@ -2,7 +2,7 @@ class MatcherController < ApplicationController
   def generate
   	if current_user && current_user.is_admin
   		if User.match.nil?
-  			@error = 'There are an odd number of registered users.'
+  			@error = 'There is an odd number of registered users.'
 		end
 	else
 		@error = 'You are not authorized to perform this action.'
