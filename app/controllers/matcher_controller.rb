@@ -1,6 +1,6 @@
 class MatcherController < ApplicationController
   def generate
-  	if current_user && current_user.is_admin
+  	if current_user && current_user.is_admin?
   		if User.match.nil?
   			@error = 'There is an odd number of registered users.'
 		end

@@ -16,7 +16,7 @@
         <% if current_user %>
         <li><%= link_to 'My Partner', '/matcher/show' %></li>
           
-          <% if current_user.is_admin %>
+          <% if current_user.is_admin? %>
           <li><%= link_to 'Generate Pairs', '/matcher/generate' %>
           <% end %>
        
