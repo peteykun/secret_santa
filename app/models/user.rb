@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
 	validates :name, :email, :address, :phone, presence: true
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }, if: :password
 
 	has_secure_password
 
-    has_one :partner, class_name: "User", foreign_key: :partner_id
-    belongs_to :inverse_partner, class_name: "User", foreign_key: :inverse_partner_id
+  has_one :partner, class_name: "User", foreign_key: :partner_id
+  belongs_to :inverse_partner, class_name: "User", foreign_key: :inverse_partner_id
 
 	def is_admin?
 		id.eql?(1)
