@@ -12,16 +12,14 @@ class User < ActiveRecord::Base
 	end
 
 	def self.match
-		if User.count.even?
-			r_users = User.all.shuffle
-			n = r_users.length
-
-			aka = r_users.slice(0..n/2-1)
-			shiro = r_users.slice(n/2..n)
-
-			aka.each_index do |x|
-				aka[x].partner = shiro[x]
-				shiro[x].partner = aka[x]
+		r_users = User.all.shuffle
+		n = User.count
+		
+		r_users.each_index do |u_index|
+			if u_index.eql?(n-1)
+				r_users[u_index].partner = r_users[0]
+			else
+				r_users[u_index].partner = r_users[u_index+1]				
 			end
 		end
 	end
